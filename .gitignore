@@ -1,6 +1,7 @@
 *.gem
 *.rbc
 /.config
+/.idea
 /coverage/
 /InstalledFiles
 /pkg/
@@ -9,10 +10,11 @@
 /test/version_tmp/
 /tmp/
 
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
+## Local Development Leftovers
+Vagrant
+Vagrantfile
+/dcm/
+
 
 ## Documentation cache and generated files:
 /.yardoc/
