@@ -6,7 +6,7 @@ require 'pp'
 
 require 'dcm/version'
 require 'dcm/configuration'
-require 'dcm/base'
+require 'dcm/client'
 
 require 'dcm/account'
 require 'dcm/billing_code'

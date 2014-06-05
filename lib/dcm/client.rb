@@ -1,17 +1,19 @@
-module DCM
-  class Base
+require 'dcm/error'
 
+module DCM
+  class Client
     # Define the same set of accessors
     attr_accessor *Configuration::VALID_CONFIG_KEYS
 
-    def initialize(options={})
-      merged_options = DCM.options.merge(options)
-å
+    def initialize(opt={})
+      merged_options = DCM.options.merge(opt)
+
       Configuration::VALID_CONFIG_KEYS.each do |key|
         send("#{key}=", merged_options[key])
       end
       yield self if block_given?
-      validate_credentials!
+
+      validate_options!
     end
 
     def get(service)
@@ -37,12 +39,12 @@ module DCM
     end
 
     def set_headers(service, timestamp)
-      headers = {'user-agent' => DCM.user_agent,
-                 'x-esauth-access' => DCM.access_key,
-                 'x-esauth-timestamp' => timestamp,
-                 'x-esauth-signature' => sign_request(service, timestamp),
-                 'x-es-details' => 'basic',
-                 'Accept' => 'application/json'}
+      {'user-agent' => DCM.user_agent,
+       'x-esauth-access' => DCM.access_key,
+       'x-esauth-timestamp' => timestamp,
+       'x-esauth-signature' => sign_request(service, timestamp),
+       'x-es-details' => 'basic',
+       'Accept' => 'application/json'}
     end
 
     def set_url(service)
@@ -50,10 +52,11 @@ module DCM
       URI.parse("#{DCM.endpoint.sub(/(\/)+$/,'')}/#{DCM.api_version}/#{service}")
     end
 
-    def validate_credentials!
-      DCM.options.each do |credential, value|
-        next if value.nil?
-        fail(DCM::Error::ConfigurationError, "Invalid #{credential} specified: #{value.inspect} must be a string or symbol.") unless value.is_a?(String) || value.is_a?(Symbol)
+    # Type Check Values
+    def validate_options!
+      Configuration::VALID_CONFIG_KEYS.each do |option|
+        fail(DCM::Error::MissingConfigurationError, "Missing #{option} value: #{option} can not be nil.") if self.send(option).nil?
+        fail(DCM::Error::ConfigurationError, "Invalid #{option} specified: #{self.send(option).inspect} must be a string or symbol.") unless self.send(option).is_a?(String) || self.send(option).is_a?(Symbol)
       end
     end
   end

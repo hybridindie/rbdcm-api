@@ -6,5 +6,7 @@ module DCM
 
     class ConfigurationError < ::ArgumentError
     end
+    class MissingConfigurationError < ::ArgumentError
+    end
   end
 end

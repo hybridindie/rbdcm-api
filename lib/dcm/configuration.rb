@@ -9,8 +9,8 @@ module DCM
     METHOD      = 'GET'
     USER_AGENT  = "Dell Cloud Manager Ruby Client #{DCM::VERSION}".freeze
 
-    ACCESS_KEY   = nil
-    SECRET_KEY   = nil
+    ACCESS_KEY  = nil
+    SECRET_KEY  = nil
 
     # Build accessor methods for every config option
     attr_accessor *VALID_CONFIG_KEYS
@@ -34,13 +34,9 @@ module DCM
       yield self
     end
 
-    def options?
-      self.options.values.all?
-    end
-
     # Return the configuration values set in this module
     def options
-      Hash[ * VALID_CONFIG_KEYS.map { |key| [key, send(key)] }.flatten ]
+      Hash[ *Configuration::VALID_CONFIG_KEYS.map { |key| [key, send(key)] }.flatten ]
     end
 
   end
