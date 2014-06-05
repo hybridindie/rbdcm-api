@@ -1,6 +1,10 @@
-# Ruby::Dcm::DCM
+# Dell Cloud Manager API Ruby Wrapper
 
-TODO: Write a gem description
+This is an early look at the Ruby wrapper for the Dell Cloud Manager API. In due time there will be near full API coverage
+
+At this time the only thing that can be done is creating a client ready for the request. 
+
+I have a simple GET request in place that you can pass the resource to but I provide it without warranty; this is a fast moving project at the start and contributions are welcome. 
 
 ## Installation
 
