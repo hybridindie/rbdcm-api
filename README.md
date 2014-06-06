@@ -42,7 +42,7 @@ Reasonable defaults are available and only access_key and secret_key are not pro
 => "yek"
 ```
 
-If using this to augment existing software such as a Rails / Sinatra app the configuration options can also be set in a configure block with an initializer or custom class.
+If using this to augment existing software such as a Rails / Sinatra app the configuration options can also be set in a block with an initializer or custom class.
 ```ruby
 DCM.configure do |config|
     config.access_key = '1234'

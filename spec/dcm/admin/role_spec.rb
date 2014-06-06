@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe DCM::Customer do
+describe DCM::Admin::Role do
   it 'should do something' do
     pending 'Not Developed Yet'
   end
