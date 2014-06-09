@@ -6,6 +6,7 @@ require 'pp'
 
 require 'dcm/version'
 require 'dcm/configuration'
+require 'dcm/http'
 require 'dcm/client'
 
 require 'dcm/admin/account'
