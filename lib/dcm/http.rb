@@ -6,14 +6,21 @@ module DCM
       timestamp = (Time.now.to_i * 1000).to_s
       connection = Net::HTTP::Get.new(url.path, set_headers( service, timestamp ))
 
-      results = Net::HTTP.start(url.host, url.port, use_ssl: url.scheme.eql?('https'), verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
+      Net::HTTP.start(url.host, url.port, use_ssl: url.scheme.eql?('https'), verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
         http.request(connection)
       end
-      results
     end
 
-    def post
+    def post(service, payload)
+      url = set_url(service)
+      timestamp = (Time.now.to_i * 1000).to_s
+      connection = Net::HTTP::Post.new(url.path, set_headers( service, timestamp ))
 
+      connection.set_form_data(payload)
+
+      Net::HTTP.start(url.host, url.port, use_ssl: url.scheme.eql?('https'), verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
+        http.request(connection)
+      end
     end
 
 
