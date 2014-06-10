@@ -13,6 +13,7 @@
 ## Local Development Leftovers
 Vagrant
 Vagrantfile
+/.vagrant/
 /dcm/
 
 
