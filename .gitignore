@@ -1,6 +1,7 @@
 *.gem
 *.rbc
 /.config
+rbdcm-api.iml
 /.idea
 /coverage/
 /InstalledFiles
