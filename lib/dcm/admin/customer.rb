@@ -1,6 +1,6 @@
 module DCM
   module Admin
-    class Customer
+    module Customer
 
     end
   end

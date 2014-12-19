@@ -1,6 +1,6 @@
 module DCM
   module Admin
-    class Job
+    module Job
 
     end
   end

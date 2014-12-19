@@ -1,5 +1,7 @@
 module DCM
   module Utils
+    include Hashie::Mash
+
     module CSV
       def load_csv(file)
 

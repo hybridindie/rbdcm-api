@@ -1,6 +1,6 @@
 module DCM
   module Admin
-    class Account
+    module Account
 
     end
   end

@@ -1,6 +1,6 @@
 module DCM
   module Infrastructure
-    class MachineImage
+    module MachineImage
     end
   end
 end

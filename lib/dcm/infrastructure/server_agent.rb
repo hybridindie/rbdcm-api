@@ -1,6 +1,6 @@
 module DCM
   module Infrastructure
-    class ServerAgent
+    module ServerAgent
     end
   end
 end

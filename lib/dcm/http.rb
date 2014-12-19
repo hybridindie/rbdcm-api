@@ -6,6 +6,8 @@ module DCM
       timestamp = (Time.now.to_i * 1000).to_s
       connection = Net::HTTP::Get.new(url.path, set_headers( service, timestamp ))
 
+      puts("URL: #{url}")
+
       Net::HTTP.start(url.host, url.port, use_ssl: url.scheme.eql?('https'), verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
         http.request(connection)
       end
@@ -16,7 +18,7 @@ module DCM
       timestamp = (Time.now.to_i * 1000).to_s
       connection = Net::HTTP::Post.new(url.path, set_headers( service, timestamp ))
 
-      connection.set_form_data(payload)
+      connection.body(payload.to_json)
 
       Net::HTTP.start(url.host, url.port, use_ssl: url.scheme.eql?('https'), verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
         http.request(connection)
@@ -49,7 +51,8 @@ module DCM
        'x-esauth-timestamp' => timestamp,
        'x-esauth-signature' => sign_request(service, timestamp),
        'x-es-details' => 'basic',
-       'Accept' => 'application/json'}
+       'Accept' => 'application/json',
+       'Content-Type' => 'text/json'}
     end
 
     def sign_request(service, timestamp)

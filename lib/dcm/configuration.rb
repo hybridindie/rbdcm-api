@@ -5,7 +5,7 @@ module DCM
     VALID_CONFIG_KEYS     = VALID_CONNECTION_KEYS + VALID_OPTIONS_KEYS
 
     ENDPOINT    = 'https://api.enstratus.com/api/enstratus'
-    API_VERSION = '2013-12-07'
+    API_VERSION = '2014-11-24'
     METHOD      = 'GET'
     USER_AGENT  = "Dell Cloud Manager Ruby Client #{DCM::VERSION}".freeze
 

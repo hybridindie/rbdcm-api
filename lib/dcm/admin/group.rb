@@ -1,6 +1,6 @@
 module DCM
   module Admin
-    class Group
+    module Group
 
     end
   end

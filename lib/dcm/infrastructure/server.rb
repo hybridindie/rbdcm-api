@@ -1,6 +1,6 @@
 module DCM
   module Infrastructure
-    class Server
+    module Server
 
     end
   end

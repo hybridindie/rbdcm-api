@@ -1,6 +1,6 @@
 module DCM
   module Infrastructure
-    class Snapshot
+    module Snapshot
     end
   end
 end

@@ -1,3 +1,3 @@
 module DCM
-  VERSION = "0.0.1"
+  VERSION = "0.10.1"
 end

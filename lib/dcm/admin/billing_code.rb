@@ -1,6 +1,6 @@
 module DCM
   module Admin
-    class BillingCode
+    module BillingCode
 
     end
   end

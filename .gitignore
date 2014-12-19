@@ -15,6 +15,7 @@ Vagrant
 Vagrantfile
 /.vagrant/
 /dcm/
+Gemfile.lock
 
 
 ## Documentation cache and generated files:

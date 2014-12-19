@@ -1,6 +1,6 @@
 module DCM
   module Admin
-    class Role
+    module Role
 
     end
   end

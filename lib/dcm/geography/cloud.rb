@@ -1,6 +1,6 @@
 module DCM
   module Geography
-    class Cloud
+    module Cloud
 
     end
   end

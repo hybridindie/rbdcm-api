@@ -1,6 +1,6 @@
 module DCM
   module Geography
-    class DataCenter
+    module DataCenter
 
     end
   end

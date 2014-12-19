@@ -3,6 +3,7 @@ require 'dcm/error'
 module DCM
   class Client
     include Http
+    include API
     # Define the same set of accessors
     attr_accessor *Configuration::VALID_CONFIG_KEYS
 

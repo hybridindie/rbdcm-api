@@ -1,6 +1,6 @@
 module DCM
   module Infrastructure
-    class Volume
+    module Volume
     end
   end
 end
